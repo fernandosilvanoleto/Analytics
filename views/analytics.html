@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="src/assets/css/analytics_style.css">
+<div ng-include="'src/analytics/views/templates/inicial.html'"></div>
+<div class="col-md-10">
+    <div class="row">
+        <div class="col-md-5">
+            <canvas id="bar" class="chart chart-bar"
+                    chart-data="data" chart-labels="labels" chart-click="onClick" chart-series="series">
+            </canvas>
+        </div>
+        <div class="col-md-5" ng-controller="LineCtrl">
+            <canvas id="line" class="chart chart-line" chart-data="data"
+                    chart-labels="labels" chart-series="series" chart-options="options"
+                    chart-dataset-override="datasetOverride" chart-click="onClick">
+            </canvas>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5" ng-controller="RadarCtrl">
+            <canvas id="radar" class="chart chart-radar"
+                    chart-data="data" chart-options="options" chart-labels="labels" chart-click="onClick">
+            </canvas>
+        </div>
+        <div class="col-md-5" ng-controller="PolarAreaCtrl">
+            <canvas id="polar-area" class="chart chart-polar-area"
+                    chart-data="data" chart-labels="labels" chart-options="options" chart-click="onClick">
+            </canvas>
+        </div>
+    </div>
+</div>

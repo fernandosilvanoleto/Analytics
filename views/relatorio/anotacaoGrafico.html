@@ -1,0 +1,31 @@
+<div ng-include="'src/analytics/views/templates/inicial.html'"></div>
+
+<div class="col-md-2"></div>
+<div class="col-md-10">
+    <div class="col-md-4">
+        <canvas id="pie" class="chart chart-pie"
+                chart-data="data" chart-labels="labels" chart-click="clickGrafico123" chart-series="series">
+        </canvas>
+
+        <div class="well well-sm" ng-show="visivelDivGrafico123" style="text-align: center">
+            <span ng-show="visivelGrafico123">
+                {{anotacaoGrafico123.anotacao}}
+            </span>
+
+            <span ng-show="!visivelGrafico123" style="text-align: center">
+                <input type="text" ng-model="anotacaoGrafico123.anotacao">
+                <button class="btn btn-default btn-xs" ng-click="salvarAnotacao(anotacaoGrafico123)" type="button">
+                    <span aria-hidden="true" class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+            </span>
+            <div>
+                <button class="btn btn-danger btn-xs" ng-click="excluirAnotacao(anotacaoGrafico123)" type="button">
+                    <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+                </button>
+                <button class="btn btn-default btn-xs" ng-click="visivelGrafico123=false" type="button">
+                    <span aria-hidden="true" class="glyphicon glyphicon-pencil"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

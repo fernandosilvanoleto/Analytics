@@ -1,0 +1,177 @@
+<div ng-include="'src/analytics/views/templates/inicial.html'"></div>
+<div class="col-md-10">
+    <div align="center">
+        <h3 align="center"><i><b>{{cursos.nome}}</b></i></h3>
+    </div>
+    <br>
+    <div class="col-md-3" style="text-align: right">
+        <label for="conteudo"><b>Selecione um conteudo:</b></label>
+    </div>
+    <div class="form-group col-md-3" ng-init="codCurso = 0">
+        <select class="form-control" ng-model="indiceCombo" ng-change="trocarConteudo(indiceCombo)">
+            <option ng-repeat="curso in cursoEmConteudo" value="{{$index}}">{{curso.tipo}}</option>
+        </select>
+    </div>
+    <div class="col-md-3" align="center">
+        <button class="btn btn-success" ng-click="redirecionar2(cursos)">Visualizar em Tabela</button>
+    </div>
+    <br>
+    <div class="col-md-10">
+        <br><br>
+        <div ng-show="grafico2" class="col-md-12" align="center">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <canvas id="bar" class="chart chart-bar"
+                            chart-data="dataBarras" chart-labels="labelsBarras" chart-click="clickGrafico5"
+                            chart-series="seriesBarras">
+                    </canvas>
+
+                    <div class="well well-sm" ng-show="visivelDivGrafico5" style="text-align: center">
+                        <span ng-show="visivelGrafico5">
+                            {{anotacaoGrafico5.anotacao}}
+                        </span>
+
+                        <span ng-show="!visivelGrafico5" style="text-align: center">
+                            <input type="text" ng-model="anotacaoGrafico5.anotacao">
+                            <button class="btn btn-default btn-xs" ng-click="salvarAnotacao(anotacaoGrafico5)" type="button">
+                                <span aria-hidden="true" class="glyphicon glyphicon-floppy-disk"></span>
+                            </button>
+                        </span>
+                        <div>
+                            <button class="btn btn-danger btn-xs" ng-click="visivelDivGrafico5=false;excluirAnotacao(anotacaoGrafico5)" type="button">
+                                <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+                            </button>
+                            <button class="btn btn-default btn-xs" ng-click="visivelGrafico5=false" type="button">
+                                <span aria-hidden="true" class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div ng-show="grafico1" class="col-md-4">
+                <h4 align="center"><b>Enquetes</b></h4>
+                <canvas id="doughnut" class="chart chart-doughnut"
+                        chart-data="dataAreaEnquetes" chart-labels="labelsGeral" chart-options="options"
+                        chart-click="clickGrafico1">
+                </canvas>
+
+                <div class="well well-sm" ng-show="visivelDivGrafico1" style="text-align: center">
+                <span ng-show="visivelGrafico1">
+                    {{anotacaoGrafico1.anotacao}}
+                </span>
+
+                <span ng-show="!visivelGrafico1" style="text-align: center">
+                    <input type="text" ng-model="anotacaoGrafico1.anotacao">
+                    <button class="btn btn-default btn-xs" ng-click="salvarAnotacao(anotacaoGrafico1)" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-floppy-disk"></span>
+                    </button>
+                </span>
+                    <div>
+                        <button class="btn btn-danger btn-xs" ng-click="visivelDivGrafico1=false;excluirAnotacao(anotacaoGrafico1)" type="button">
+                            <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+                        </button>
+                        <button class="btn btn-default btn-xs" ng-click="visivelGrafico1=false" type="button">
+                            <span aria-hidden="true" class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="grafico1" class="col-md-4">
+                <h4 align="center"><b>Guia de Estudo</b></h4>
+                <canvas id="doughnut" class="chart chart-doughnut"
+                        chart-data="dataAreaGuia" chart-labels="labelsGeral" chart-options="options"
+                        chart-click="clickGrafico2">
+                </canvas>
+
+                <div class="well well-sm" ng-show="visivelDivGrafico2" style="text-align: center">
+                    <span ng-show="visivelGrafico2">
+                        {{anotacaoGrafico2.anotacao}}
+                    </span>
+
+                    <span ng-show="!visivelGrafico2" style="text-align: center">
+                        <input type="text" ng-model="anotacaoGrafico2.anotacao">
+                        <button class="btn btn-default btn-xs" ng-click="salvarAnotacao(anotacaoGrafico2)" type="button">
+                            <span aria-hidden="true" class="glyphicon glyphicon-floppy-disk"></span>
+                        </button>
+                    </span>
+                    <div>
+                        <button class="btn btn-danger btn-xs" ng-click="visivelDivGrafico2=false;excluirAnotacao(anotacaoGrafico2)" type="button">
+                            <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+                        </button>
+                        <button class="btn btn-default btn-xs" ng-click="visivelGrafico2=false" type="button">
+                            <span aria-hidden="true" class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div ng-show="grafico1" class="col-md-4">
+                <h4 align="center"><b>Slides</b></h4>
+                <canvas id="doughnut" class="chart chart-doughnut"
+                        chart-data="dataAreaSlide" chart-labels="labelsGeral" chart-options="options"
+                        chart-click="clickGrafico3">
+                </canvas>
+
+                <div class="well well-sm" ng-show="visivelDivGrafico3" style="text-align: center">
+                <span ng-show="visivelGrafico3">
+                    {{anotacaoGrafico3.anotacao}}
+                </span>
+
+                    <span ng-show="!visivelGrafico3" style="text-align: center">
+                    <input type="text" ng-model="anotacaoGrafico3.anotacao">
+                    <button class="btn btn-default btn-xs" ng-click="salvarAnotacao(anotacaoGrafico3)" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-floppy-disk"></span>
+                    </button>
+                </span>
+                    <div>
+                        <button class="btn btn-danger btn-xs" ng-click="visivelDivGrafico3=false;excluirAnotacao(anotacaoGrafico3)" type="button">
+                            <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+                        </button>
+                        <button class="btn btn-default btn-xs" ng-click="visivelGrafico3=false" type="button">
+                            <span aria-hidden="true" class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="grafico1" class="col-md-4">
+                <h4 align="center"><b>Imagens</b></h4>
+                <canvas id="doughnut" class="chart chart-doughnut"
+                        chart-data="dataAreaImagem" chart-labels="labelsGeral" chart-options="options"
+                        chart-click="clickGrafico4">
+                </canvas>
+
+                <div class="well well-sm" ng-show="visivelDivGrafico4" style="text-align: center">
+                <span ng-show="visivelGrafico4">
+                    {{anotacaoGrafico20.anotacao}}
+                </span>
+
+                    <span ng-show="!visivelGrafico4" style="text-align: center">
+                    <input type="text" ng-model="anotacaoGrafico4.anotacao">
+                    <button class="btn btn-default btn-xs" ng-click="salvarAnotacao(anotacaoGrafico4)" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-floppy-disk"></span>
+                    </button>
+                </span>
+                    <div>
+                        <button class="btn btn-danger btn-xs" ng-click="visivelDivGrafico4=false;excluirAnotacao(anotacaoGrafico4)" type="button">
+                            <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+                        </button>
+                        <button class="btn btn-default btn-xs" ng-click="visivelGrafico4=false" type="button">
+                            <span aria-hidden="true" class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

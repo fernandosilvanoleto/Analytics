@@ -1,0 +1,77 @@
+<div ng-include="'src/analytics/views/templates/inicial.html'"></div>
+<div class="col-md-8">
+    <button class="btn btn-success">Export</button>
+    <a href="" align="center" class="btn btn-primary" role="button" width="300"
+       height="150" ng-click="alteraTabela()">Tabela 1</a>
+    <br><br>
+    <div class="input-group"><span class="input-group-addon">Pesquisar</span>
+        <input id="filter" type="text" class="form-control" placeholder="Pesquisar...">
+    </div>
+    <br>
+    <table class="table table-bordered" id="table2excel">
+        <thead>
+        <tr class="noExl">
+            <th>Dia</th>
+            <th>Criado</th>
+            <th>Alterados</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody class="searchable">
+        <tr>
+            <td>01/11/2015</td>
+            <td>23</td>
+            <td>14</td>
+            <td>Inativo</td>
+        </tr>
+        <tr>
+            <td>09/11/2016</td>
+            <td>10</td>
+            <td>4</td>
+            <td>Inativo</td>
+        </tr>
+        <tr>
+            <td>16/11/2016</td>
+            <td>21</td>
+            <td>12</td>
+            <td>Ativo</td>
+        </tr>
+        <tr>
+            <td>23/11/2016</td>
+            <td>25</td>
+            <td>12</td>
+            <td>Ativo</td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered" id="table2excel">
+        <thead>
+        <tr class="noExl">
+            <th>Dia</th>
+            <th>Criado</th>
+            <th>Alterados</th>
+
+        </tr>
+        </thead>
+        <tbody class="searchable">
+        <tr>
+            <td>01/11/2015</td>
+            <td>23</td>
+            <td>14</td>
+
+        </tr>
+        <tr>
+            <td>09/11/2016</td>
+            <td>10</td>
+            <td>4</td>
+
+        </tr>
+        <tr>
+            <td>16/11/2016</td>
+            <td>21</td>
+            <td>12</td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,79 @@
+<div ng-include="'src/analytics/views/templates/inicial.html'"></div>
+<div class="col-md-10">
+  <a href="" align="center" class="btn btn-primary" role="button" width="300"
+     height="150" ng-click="gerarTabela(1)">Tabela 1</a>
+  <a href="" align="center" class="btn btn-primary" role="button" width="300"
+     height="150" ng-click="gerarTabela(2)">Tabela 2</a>
+  <a href="" align="center" class="btn btn-primary" role="button" width="300"
+     height="150" ng-click="gerarTabela(3)">Tabela 3</a>
+  <a href="" align="center" class="btn btn-success" role="button" width="300"
+    height="150" ng-click="redirecionarGrafico(cursoTabelaController)">Visualizar em Gráficos</a>
+  <button class="btn btn-info">Exportar</button>
+</div>
+<div class="col-md-10"><br>
+      <div class="input-group col-md-7"> <span class="input-group-addon">Pesquisar</span>
+          <input id="filter" type="text" class="form-control" placeholder="Pesquisar...">
+      </div>
+</div>
+<div class="col-md-10"><br>
+      <br>
+      <div ng-show="table1">
+          <table class="table table-bordered" id="table2excel">
+              <thead>
+                  <tr class="noExl">
+                      <th align="center">Tipo</th>
+                      <th align="center">Criados</th>
+                      <th align="center">Editados</th>
+                      <th align="center">Visualizados</th>
+                      <th align="center">Excluídos</th>
+                  </tr>
+              </thead>
+              <tbody class="searchable">
+                  <tr ng-repeat="curso in cursoConteudoTabela">
+                      <td>{{curso.tipo}}</td>
+                      <td align="center">{{curso.criados}}</td>
+                      <td align="center">{{curso.editados}}</td>
+                      <td align="center">{{curso.visualizados}}</td>
+                      <td align="center">{{curso.excluidos}}</td>
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+        <div ng-show="table2">
+          Tabela 2
+          <table class="table table-bordered" id="table2excel">
+              <thead>
+                  <tr class="noExl">
+                      <th>Código Tópico</th>
+                      <th>Descrição</th>
+                      <th>Nome do Curso</th>
+                  </tr>
+              </thead>
+              <tbody class="searchable">
+                  <tr ng-repeat="al in alunoCurso">
+                      <td>{{al.ativo}}</td>
+                      <td>{{al.nome}}</td>
+                      <td>{{cursoTabela.nome}}</td>
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+        <div ng-show="table3">
+          Tabela 3
+          <table class="table table-bordered" id="table2excel">
+              <thead>
+                  <tr class="noExl">
+                      <th>Curso</th>
+                      <th>Descrição</th>
+                  </tr>
+              </thead>
+              <tbody class="searchable">
+                  <tr ng-repeat="curTop in cursoTopicos">
+                      <td>{{cursoTabela.nome}}</td>
+                      <td>{{curTop.descricao}}</td>
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+
+</div>

@@ -1,0 +1,32 @@
+<div ng-include="'src/analytics/views/templates/inicial.html'"></div>
+<div class="col-md-2"></div>
+<div class="col-md-10">
+    <div>
+        <div align='center'>
+        <button class="btn btn-success" ng-click="redirecionar2(cursoTabela)">Visualizar em Tabela</button>
+        </div>
+        <br>
+        <div align="center">
+          <a href="" align="center" class="btn btn-primary" role="button" width="300"
+             height="150" ng-click="gerarGrafico(1)"
+             ><input type="image" src="src/assets/img/analytics/bar.png"></input></a>
+          <a href="" align="center" class="btn btn-primary" role="button" width="300"
+             height="150" ng-click="gerarGrafico(2)">
+           <input type="image" src="src/assets/img/analytics/cicle.png"></input></a>
+        </div>
+          <h1 align="center">{{cursoTabela.nome}}</h1>
+        <br>
+        <div align="center">
+          <div ng-show="grafico1" class="col-md-4">
+              <canvas id="bar" class="chart chart-bar"
+                      chart-data="data" chart-labels="labels" chart-click="onClick" chart-series="series">
+              </canvas>
+          </div>
+          <div ng-show="grafico2" class="col-md-4"ng-controller="PolarAreaCtrl">
+              <canvas id="polar-area" class="chart chart-polar-area"
+                      chart-data="data" chart-labels="labels" chart-options="options" chart-click="onClick">
+              </canvas>
+          </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div ng-controller="InicialController">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <div class="container">
+
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#/analytics/relatorio">Relatórios</a>
+                        </li>
+                        <li>
+                            <a href="#/analytics/criterios/lista">Critérios</a>
+                        </li>
+                        <li>
+                            <a href="#/analytics/criterios/avaliacao">Avaliação</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <div class="col-md-2" style="min-height:100%; height:auto;">
+        <nav class="sidebar">
+            <ul class="nav">
+                <li><a href="" id="btn-1" data-toggle="collapse" data-target="#submenu1" aria-expanded="false">
+                    <i class="glyphicon glyphicon-book"></i> Conteúdos <span class="caret"></span></i></a></li>
+                <ul id="submenu1" role="menu" aria-labelledby="btn-1">
+                    <li><a href="" ng-click="redirecionarConteudos(2)">Guia de Estudo</a></li>
+                    <li><a href="" ng-click="redirecionarConteudos(1)">Enquetes</a></li>
+                    <li><a href="" ng-click="redirecionarConteudos(3)">Slides</a></li>
+                    <li><a href="" ng-click="redirecionarConteudos(4)">Imagens</a></li>
+                    <li><a href="" ng-click="redirecionarConteudos(5)">Vídeos</a></li>
+                </ul>
+                <li><a href="" id="btn-1" data-toggle="collapse" data-target="#submenu2" aria-expanded="false">
+                    <i class="glyphicon glyphicon-education"></i> Cursos <span class="caret"></span></a>
+                    <ul id="submenu2" role="menu" aria-labelledby="btn-1">
+                        <li ng-repeat="curso in cursos " ng-click="redirecionar(curso)"><a href="">{{curso.nome}}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <br><br><br>
+    </div>
+</div>
+
+<div ng-controller="AnalyticsController">

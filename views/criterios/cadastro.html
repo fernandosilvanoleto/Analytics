@@ -1,0 +1,72 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <div class="container">
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#/analytics/relatorio">Relatórios</a>
+                    </li>
+                    <li>
+                        <a href="#/analytics/criterios/lista">Critérios</a>
+                    </li>
+                    <li>
+                        <a href="#/analytics/criterios/avaliacao">Avaliação</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h3>Cadastro/Edição de critérios</h3>
+
+    <form class="form" name="form" novalidate>
+        <div class="form-group">
+            <label for="nome">Nome <span class="required">*</span></label>
+            <input type="text" name="nome" id="nome" required class="form-control" ng-model="criterio.nome">
+            <div ng-show="form.$submitted&&form.nome.$error.required" class="alert alert-danger">
+                Informe o nome do critério
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nome">Sigla <span class="required">*</span></label>
+            <input type="text" name="sigla" id="sigla" class="form-control" required ng-model="criterio.sigla">
+            <div ng-show="form.$submitted&&form.sigla.$error.required" class="alert alert-danger">
+                Informe a sigla
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nome">Peso <span class="required">*</span></label>
+            <input type="text" name="peso" id="peso" class="form-control" required ng-model="criterio.peso">
+            <div ng-show="form.$submitted&&form.peso.$error.required" class="alert alert-danger">
+                Informe o peso
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nome">Descrição <span class="required">*</span></label>
+            <input type="text" name="descricao" id="descricao" class="form-control" required ng-model="criterio.descricao">
+            <div ng-show="form.$submitted&&form.descricao.$error.required" class="alert alert-danger">
+                Informe a descrição
+            </div>
+        </div>
+        <div class="form-group" ng-init="codCurso = 0">
+            <label for="curso">Curso <span class="required">*</span></label>
+            <select class="form-control" name="c" id="c" required ng-model="indiceCombo" ng-click="trocarCurso()">
+                <option ng-repeat="curso in cursos" value="{{$index}}">{{curso.nome}}</option>
+            </select>
+            <div ng-show="form.$submitted&&form.c.$error.required" class="alert alert-danger">
+                Informe o curso
+            </div>
+        </div>
+        <div class="container" align='center'>
+            <button class="btn btn-primary" ng-click="salvar(criterio)" type="submit">Salvar</button>
+            <button class="btn btn-default" ng-click="cancelar()" type="button">Cancelar</button>
+        </div>
+    </form>
+</div>
+
+<br>
+<br>
+<br>

@@ -1,0 +1,123 @@
+<div ng-include="'src/analytics/views/templates/inicial.html'"></div>
+
+<div class="col-md-10">
+    <div class="row">
+        <div class="col-md-6">
+            <h4 align="center"><b>Criados</b></h4>
+            <canvas id="bar" class="chart chart-bar"
+                    chart-data="dataCriados" chart-labels="labelsBarras" chart-click="clickGrafico1" chart-series="seriesBarras">
+            </canvas>
+
+            <div class="well well-sm" ng-show="visivelDivGrafico1" style="text-align: center">
+                <span ng-show="visivelGrafico1">
+                    {{anotacaoGrafico1.anotacao}}
+                </span>
+
+                <span ng-show="!visivelGrafico1" style="text-align: center">
+                    <input type="text" ng-model="anotacaoGrafico1.anotacao">
+                    <button class="btn btn-default btn-xs" ng-click="salvarAnotacao(anotacaoGrafico1)" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-floppy-disk"></span>
+                    </button>
+                </span>
+                <div>
+                    <button class="btn btn-danger btn-xs" ng-click="visivelDivGrafico1=false;excluirAnotacao(anotacaoGrafico1)"
+                            type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    <button class="btn btn-default btn-xs" ng-click="visivelGrafico1=false" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h4 align="center"><b>Editados</b></h4>
+            <canvas id="bar" class="chart chart-bar"
+                    chart-data="dataEditados" chart-labels="labelsBarras" chart-click="clickGrafico2" chart-series="seriesBarras">
+            </canvas>
+
+            <div class="well well-sm" ng-show="visivelDivGrafico2" style="text-align: center">
+                <span ng-show="visivelGrafico2">
+                    {{anotacaoGrafico2.anotacao}}
+                </span>
+
+                <span ng-show="!visivelGrafico2" style="text-align: center">
+                    <input type="text" ng-model="anotacaoGrafico2.anotacao">
+                    <button class="btn btn-default btn-xs" ng-click="salvarAnotacao(anotacaoGrafico2)" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-floppy-disk"></span>
+                    </button>
+                </span>
+                <div>
+                    <button class="btn btn-danger btn-xs" ng-click="visivelDivGrafico2=false;excluirAnotacao(anotacaoGrafico2)"
+                            type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    <button class="btn btn-default btn-xs" ng-click="visivelGrafico2=false" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h4 align="center"><b>Visualizados</b></h4>
+            <canvas id="bar" class="chart chart-bar"
+                    chart-data="dataVisualizados" chart-labels="labelsBarras" chart-click="clickGrafico3" chart-series="seriesBarras">
+            </canvas>
+
+            <div class="well well-sm" ng-show="visivelDivGrafico3" style="text-align: center">
+                <span ng-show="visivelGrafico3">
+                    {{anotacaoGrafico3.anotacao}}
+                </span>
+
+                <span ng-show="!visivelGrafico3" style="text-align: center">
+                    <input type="text" ng-model="anotacaoGrafico3.anotacao">
+                    <button class="btn btn-default btn-xs" ng-click="salvarAnotacao(anotacaoGrafico3)" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-floppy-disk"></span>
+                    </button>
+                </span>
+                <div>
+                    <button class="btn btn-danger btn-xs" ng-click="visivelDivGrafico3=false;excluirAnotacao(anotacaoGrafico3)"
+                            type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    <button class="btn btn-default btn-xs" ng-click="visivelGrafico3=false" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h4 align="center"><b>Excluídos</b></h4>
+            <canvas id="bar" class="chart chart-bar"
+                    chart-data="dataExcluidos" chart-labels="labelsBarras" chart-click="clickGrafico4" chart-series="seriesBarras">
+            </canvas>
+
+            <div class="well well-sm" ng-show="visivelDivGrafico4" style="text-align: center">
+                <span ng-show="visivelGrafico4">
+                    {{anotacaoGrafico4.anotacao}}
+                </span>
+
+                <span ng-show="!visivelGrafico4" style="text-align: center">
+                    <input type="text" ng-model="anotacaoGrafico4.anotacao">
+                    <button class="btn btn-default btn-xs" ng-click="salvarAnotacao(anotacaoGrafico4)" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-floppy-disk"></span>
+                    </button>
+                </span>
+                <div>
+                    <button class="btn btn-danger btn-xs" ng-click="visivelDivGrafico4=false;excluirAnotacao(anotacaoGrafico4)"
+                            type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    <button class="btn btn-default btn-xs" ng-click="visivelGrafico4=false" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
